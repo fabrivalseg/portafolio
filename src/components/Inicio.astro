@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+<section id="inicio" class="min-h-screen  flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="container mx-auto px-6 py-16 md:py-24 w-[90%]">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                    Hola, soy <span class="text-primary">Fabrizio Valverde</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-slate-300 mb-6">
+                    Estudiante de Ing. en Sistemas y Programador web
+                </h2>
+                <p class="text-lg text-slate-400 mb-8 max-w-lg">
+                    Desarrollador web y estudiante de Ingeniería en Sistemas, especializado en la creación de sistemas y landing pages con tecnologías como Next.js, React, Java y Tailwind. Me destaco por mi capacidad de adaptación y aprendizaje continuo
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contacto" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all">
+                        Contactarme
+                    </a>
+                    <a href="#proyectos" class="px-6 py-3 bg-transparent hover:bg-white/10 border border-white/20 text-white font-medium rounded-lg transition-all">
+                        Ver mi Trabajo
+                    </a>
+                </div>
+                <div class="flex mt-8 gap-4">
+                    <a href="https://github.com/fabrivalseg" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                        <Icon name="mdi:github" class="w-6 h-6" />
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fabrizio-valverde-segura-b4426a358" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                        <Icon name="mdi:linkedin" class="w-6 h-6" />
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
+                    <img 
+                        src="/image/personal-image.jpeg?height=320&width=320" 
+                        alt="Tu Nombre" 
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

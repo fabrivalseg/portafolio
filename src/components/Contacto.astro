@@ -1,0 +1,135 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="contacto" class="py-20 bg-slate-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Contacto</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+            <p class="text-slate-300 mt-4 max-w-2xl mx-auto">
+                ¿Tienes un proyecto en mente o deseas colaborar? No dudes en contactarme.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 w-[90%]  mx-auto">
+            <div>
+                <h3 class="text-2xl font-semibold mb-6">Información de Contacto</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-primary/20 p-3 rounded-lg">
+                            <Icon name="mdi:email" class="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Correo Electrónico</h4>
+                            <p class="text-slate-300">fabrizioval.seg@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-primary/20 p-3 rounded-lg">
+                            <Icon name="mdi:phone" class="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Teléfono</h4>
+                            <p class="text-slate-300">+54 351 7169604</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-primary/20 p-3 rounded-lg">
+                            <Icon name="mdi:map-marker" class="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Ubicación</h4>
+                            <p class="text-slate-300">Rio Segundo, Cordoba, Argentina</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4">Redes Profesionales</h3>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/fabrivalseg" target="_blank" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg transition-colors">
+                            <Icon name="mdi:github" class="w-6 h-6" />
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/fabrizio-valverde-segura-b4426a358" target="_blank" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg transition-colors">
+                            <Icon name="mdi:linkedin" class="w-6 h-6" />
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium mb-2">Nombre</label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none  text-white"
+                            placeholder="Tu Nombre"
+                            value=""
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"
+                            placeholder="Tu Email"
+                            value=""
+                        />
+                    </div>
+                    <div>
+                        <label for="asunto" class="block text-sm font-medium mb-2">Asunto</label>
+                        <input 
+                            type="text" 
+                            id="asunto" 
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white"
+                            placeholder="Asunto del mensaje"
+                            value=""
+                        />
+                    </div>
+                    <div>
+                        <label for="mensaje" class="block text-sm font-medium mb-2">Mensaje</label>
+                        <textarea 
+                            id="mensaje" 
+                            rows="5" 
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white resize-none"
+                            placeholder="Tu Mensaje"
+                            value=""
+                        ></textarea>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all"
+                    >
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const form = document.querySelector('form');
+
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        const asunto = (document.getElementById('asunto') as HTMLInputElement).value;
+        const mensaje = (document.getElementById('mensaje') as HTMLInputElement).value;
+
+        const phoneNumber = "5493517169604";
+        const message = `📩 Nuevo mensaje de contacto:\n\n👤 Nombre: ${nombre}\n📧 Email: ${email}\n📝 Asunto: ${asunto}\n💬 Mensaje: ${mensaje}`;
+
+
+        const isMobile = /iPhone|Android/i.test(navigator.userAgent);
+        const url = isMobile
+            ? `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+            : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+        });
+</script>

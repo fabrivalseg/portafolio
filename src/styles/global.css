@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme{
+    --color-primary: #05345b;
+    --color-primary-foreground: #05345b
+}
+
+
+.dark {
+  --color-primary: #05345b; /* blue-500 */
+  --color-primary-foreground: 255 255 255;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+

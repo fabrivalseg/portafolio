@@ -1,0 +1,117 @@
+---
+import { Icon } from 'astro-icon/components';
+const proyectosIniciales = [{image: "residencia.png",nombre: "Landing page residencia", descripcion: "Landing page para una residencia de adultos mayores", tecnologias: ["Next.js", "Css", "React"], linkWeb: "https://geriatrico.netlify.app/", linkGit: "https://github.com/fabrivalseg/geriatrico.git"},
+{image: "gestion-pedidos.png", nombre: "Gestion de pedidos", descripcion: "Sistema de toma y realizacion de pedidos para una cafeteria, incluye gestion de productos, empleados y pedidos", tecnologias: ["React", "Css", "Supabase", "Java", "Spring Boot"], linkWeb: "", linkGit: ""},
+{image: "tienda-ropa.png", nombre: "Tienda de ropa", descripcion: "Tienda de ropa online con carrito de compras y gestion de productos", tecnologias: ["React", "Css", "Javascript", "Vite"], linkWeb: "https://tienda-online-deportiva.netlify.app/", linkGit: "https://github.com/fabrivalseg/tienda-ropa.git"}]
+
+const proyectosRestantes = [{image: "traductor.png",nombre: "Traductor de idiomas", descripcion: "Traductor al estilo google, no hecho responsive solamente para laptops", tecnologias: ["Css", "React", "Javascript"], linkWeb: "https://translateappmaster.netlify.app/", linkGit: "https://github.com/fabrivalseg/translate-app-master.git"},
+{image: "ecommerce.png", nombre: "Frontend Ecommerce", descripcion: "Pagina principal de un ecommerce que permite agregar el producto y visualizar imagenes y links de una manera interesante", tecnologias: ["Html", "Css", "Javascript"], linkWeb: "https://github.com/fabrivalseg/pagina-principal-eccomerce.git", linkGit: "https://github.com/fabrivalseg/pagina-principal-eccomerce.git"},
+]
+---
+
+<section id="proyectos" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Mis Proyectos</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+            <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
+                Muestra de mis trabajos y proyectos recientes. Cada proyecto demuestra diferentes habilidades y tecnologías aplicadas.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {proyectosIniciales.map((proyecto) => (
+                <div class="bg-slate-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img 
+                            src={`/proyectos/${proyecto.image}?height=300&width=500&text=Proyecto`} 
+                            alt={`Proyecto ${proyecto.descripcion}`} 
+                            class="w-full h-full object-cover transition-transform hover:scale-105"
+                        />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">{proyecto.nombre}</h3>
+                        <p class="text-slate-600 mb-4">
+                            {proyecto.descripcion}
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {
+                                proyecto.tecnologias.map((tecnologia) => {
+                                    return <span class="px-3 py-1 bg-slate-200 text-slate-700 text-sm rounded-full">{tecnologia}</span>
+                                })
+                            }
+                        </div>
+                        {
+                            proyecto.linkWeb !== "" && (
+                                <div class="flex gap-4">
+                                    <a href={proyecto.linkWeb} target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center gap-1">
+                                        <span>Ver Proyecto</span>
+                                        <Icon name="mdi:arrow-right" class="w-4 h-4" />
+                                    </a>
+                                    <a href={proyecto.linkGit} target="_blank" class="text-slate-600 hover:text-slate-800 font-medium flex items-center gap-1">
+                                        <span>Código</span>
+                                        <Icon name="mdi:github" class="w-4 h-4" />
+                                    </a>
+                                </div>
+                            ) 
+                        }
+                    </div>
+                </div>
+            ))}
+            </div>
+            <div id="restantes" class="grid mt-8 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full hidden">
+                {proyectosRestantes.map((proyecto) => (
+                    <div class="bg-slate-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                        <div class="h-48 overflow-hidden">
+                            <img 
+                                src={`/proyectos/${proyecto.image}?height=300&width=500&text=Proyecto`} 
+                                alt={`Proyecto ${proyecto.descripcion}`} 
+                                class="w-full h-full object-cover transition-transform hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">{proyecto.nombre}</h3>
+                            <p class="text-slate-600 mb-4">
+                                {proyecto.descripcion}
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {
+                                    proyecto.tecnologias.map((tecnologia) => {
+                                        return <span class="px-3 py-1 bg-slate-200 text-slate-700 text-sm rounded-full">{tecnologia}</span>
+                                    })
+                                }
+                            </div>
+                            <div class="flex gap-4">
+                                <a href={proyecto.linkWeb} target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center gap-1">
+                                    <span>Ver Proyecto</span>
+                                    <Icon name="mdi:arrow-right" class="w-4 h-4" />
+                                </a>
+                                <a href={proyecto.linkGit} target="_blank" class="text-slate-600 hover:text-slate-800 font-medium flex items-center gap-1">
+                                    <span>Código</span>
+                                    <Icon name="mdi:github" class="w-4 h-4" />
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            ))}
+        </div>
+        <div class="text-center mt-12">
+            <button id="boton-mostrar" class="inline-block px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all">
+                Ver Todos los Proyectos
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const boton = document.getElementById('boton-mostrar');
+    boton?.addEventListener('click', () => {
+        const restantes = document.getElementById('restantes');
+        if (restantes?.classList.contains('hidden')) {
+            boton.innerText = 'Ver Menos Proyectos';
+        } else {
+            boton.innerText = 'Ver Todos los Proyectos';
+        }
+        restantes?.classList.toggle('hidden');
+    })
+</script>
