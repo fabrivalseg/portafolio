@@ -1,11 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
-const proyectosIniciales = [{image: "residencia.png",nombre: "Landing page residencia", descripcion: "Landing page para una residencia de adultos mayores", tecnologias: ["Next.js", "Css", "React"], linkWeb: "https://geriatrico.netlify.app/", linkGit: "https://github.com/fabrivalseg/geriatrico.git"},
+const proyectosIniciales = [{image: "residencia.png",nombre: "Landing page residencia", descripcion: "Landing page para una residencia de adultos mayores", tecnologias: ["Next.js", "Css", "React, SEO optimizado"], linkWeb: "https://geriatrico.netlify.app/", linkGit: "https://github.com/fabrivalseg/geriatrico.git"},
 {image: "gestion-pedidos.png", nombre: "Gestion de pedidos", descripcion: "Sistema de toma y realizacion de pedidos para una cafeteria, incluye gestion de productos, empleados y pedidos", tecnologias: ["React", "Css", "Supabase", "Java", "Spring Boot"], linkWeb: "", linkGit: ""},
-{image: "tienda-ropa.png", nombre: "Tienda de ropa", descripcion: "Tienda de ropa online con carrito de compras y gestion de productos", tecnologias: ["React", "Css", "Javascript", "Vite"], linkWeb: "", linkGit: ""}]
+{image: "santo_horno.png", nombre: "Santo Horno Langing Page", descripcion: "Diseño y desarrollo de un sitio web profesional para una panificadora.", tecnologias: ["Astro", "Css", "SEO optimizado"], linkWeb: "", linkGit: ""},
+]
 
 const proyectosRestantes = [{image: "traductor.png",nombre: "Traductor de idiomas", descripcion: "Traductor al estilo google, no hecho responsive solamente para laptops", tecnologias: ["Css", "React", "Javascript"], linkWeb: "https://translateappmaster.netlify.app/", linkGit: "https://github.com/fabrivalseg/translate-app-master.git"},
+{image: "15s.png", nombre: "Sitema gestion de invitados", descripcion: "Diseñé una solución sencilla y funcional para gestionar el acceso de invitados a una fiesta, permitiendo control en la entrada y verificación digital.", tecnologias: ["React", "Css", "Node js", "Mongo Db"], linkWeb: "", linkGit: ""},
 {image: "ecommerce.png", nombre: "Frontend Ecommerce", descripcion: "Pagina principal de un ecommerce que permite agregar el producto y visualizar imagenes y links de una manera interesante", tecnologias: ["Html", "Css", "Javascript"], linkWeb: "https://github.com/fabrivalseg/pagina-principal-eccomerce.git", linkGit: "https://github.com/fabrivalseg/pagina-principal-eccomerce.git"},
+{image: "tienda-ropa.png", nombre: "Tienda de ropa", descripcion: "Tienda de ropa online con carrito de compras y gestion de productos", tecnologias: ["React", "Css", "Javascript", "Vite"], linkWeb: "", linkGit: ""}
 ]
 ---
 
@@ -80,16 +83,20 @@ const proyectosRestantes = [{image: "traductor.png",nombre: "Traductor de idioma
                                     })
                                 }
                             </div>
-                            <div class="flex gap-4">
-                                <a href={proyecto.linkWeb} target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center gap-1">
-                                    <span>Ver Proyecto</span>
-                                    <Icon name="mdi:arrow-right" class="w-4 h-4" />
-                                </a>
-                                <a href={proyecto.linkGit} target="_blank" class="text-slate-600 hover:text-slate-800 font-medium flex items-center gap-1">
-                                    <span>Código</span>
-                                    <Icon name="mdi:github" class="w-4 h-4" />
-                                </a>
-                            </div>
+                            {
+                            proyecto.linkWeb !== "" && (
+                                <div class="flex gap-4">
+                                    <a href={proyecto.linkWeb} target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center gap-1">
+                                        <span>Ver Proyecto</span>
+                                        <Icon name="mdi:arrow-right" class="w-4 h-4" />
+                                    </a>
+                                    <a href={proyecto.linkGit} target="_blank" class="text-slate-600 hover:text-slate-800 font-medium flex items-center gap-1">
+                                        <span>Código</span>
+                                        <Icon name="mdi:github" class="w-4 h-4" />
+                                    </a>
+                                </div>
+                            ) 
+                        }
                         </div>
                 </div>
             ))}
